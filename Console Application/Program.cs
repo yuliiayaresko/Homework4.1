@@ -2,9 +2,11 @@
 {
     public string Name;
     public string Position;
-    public string WorkDay;
-    public Worker(string name)
+    public int WorkDay;
+    public Worker(string name, string position, int workDay )
     {  Name = name;
+        Position = position;
+        WorkDay = workDay;
         
     }
    
@@ -28,7 +30,7 @@
     }
 class Developer : Worker
 {
-    public Developer(string name, int WorkDay) : base("Розробник") { }
+    public Developer(string name, int workDay) : base(name, "Розробник", workDay) { }
     public override void FillWorkDay()
     {
         WriteCode();
@@ -42,7 +44,7 @@ class Developer : Worker
 class Manager : Worker
 {
     private Random random;
-    public Manager(string position, int WorkDay) : base("Менеджер"){}
+    public Manager(string name, int workDay) : base(name, "Менеджер", workDay){}
     public override void FillWorkDay()
     {
         int callTimes1 = random.Next(1, 11);  
